@@ -30,10 +30,11 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platforms;android-35,build-tools;35.0.0'
 
-      - name: Install Android SDK and Gradle
+      - name: Install Gradle
         run: |
-          sdkmanager "platforms;android-35" "build-tools;35.0.0"
           curl -L https://services.gradle.org/distributions/gradle-8.9-bin.zip -o /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /tmp
           echo "/tmp/gradle-8.9/bin" >> "$GITHUB_PATH"
